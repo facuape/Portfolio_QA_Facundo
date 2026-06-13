@@ -39,9 +39,9 @@ Usá este archivo para marcar tu progreso. Cambiá `[ ]` por `[x]` cuando comple
 ## 📦 BLOQUE 2 — Herramientas (Semanas 5–6)
 
 ### Semana 5 — Jira + Git
-- [ ] Crear cuenta en Jira (versión gratuita)
-- [ ] Crear proyecto y tablero Kanban
-- [ ] Reportar 3 bugs con formato profesional (título, pasos, resultado esperado/actual, evidencia)
+- [x ] Crear cuenta en Jira (versión gratuita)
+- [x ] Crear proyecto y tablero Kanban
+- [x ] Reportar 3 bugs con formato profesional (título, pasos, resultado esperado/actual, evidencia)
 - [ ] Instalar Git
 - [ ] `git init`, `git add`, `git commit`, `git push` en un proyecto propio
 - [ ] Crear rama y hacer merge
