@@ -27,3 +27,17 @@ test('login fallido con usuario bloqueado', async ({ page }) => {
   
   await expect(page.locator('[data-test="error"]')).toHaveText('Epic sadface: Sorry, this user has been locked out.');
 });
+test('verificar titulo pagina inventario tras login', async ({ page }) => {
+  await page.goto('https://www.saucedemo.com');
+  
+  await page.fill('#user-name', 'standard_user');
+  await page.fill('#password', 'secret_sauce');
+  await page.click('#login-button');
+  
+  await expect(page.locator('.app_logo')).toHaveText('Swag Labs');
+});
+test('verificar placeholder del campo usuario', async ({ page }) => {
+  await page.goto('https://www.saucedemo.com');
+  
+  await expect(page.locator('#user-name')).toHaveAttribute('placeholder', 'Username');
+});
