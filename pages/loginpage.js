@@ -1,36 +1,23 @@
-import { test, expect } from '@playwright/test';
-import { LoginPage } from '../pages/LoginPage.js';
+export class LoginPage {
+  constructor(page) {
+    this.page = page;
+    this.usernameInput = page.locator('#user-name');
+    this.passwordInput = page.locator('#password');
+    this.loginButton = page.locator('#login-button');
+    this.errorMessage = page.locator('[data-test="error"]');
+  }
 
-test('login exitoso con usuario válido', async ({ page }) => {
-  const loginPage = new LoginPage(page);
-  await loginPage.goto();
-  await loginPage.login('standard_user', 'secret_sauce');
-  await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html');
-});
+  async goto() {
+    await this.page.goto('/');
+  }
 
-test('login fallido con usuario incorrecto', async ({ page }) => {
-  const loginPage = new LoginPage(page);
-  await loginPage.goto();
-  await loginPage.login('usuario_falso', 'password_falso');
-  await expect(loginPage.errorMessage).toBeVisible();
-});
+  async login(username, password) {
+    await this.usernameInput.fill(username);
+    await this.passwordInput.fill(password);
+    await this.loginButton.click();
+  }
 
-test('login fallido con usuario bloqueado', async ({ page }) => {
-  const loginPage = new LoginPage(page);
-  await loginPage.goto();
-  await loginPage.login('locked_out_user', 'secret_sauce');
-  await expect(loginPage.errorMessage).toHaveText('Epic sadface: Sorry, this user has been locked out.');
-});
-
-test('verificar titulo pagina inventario tras login', async ({ page }) => {
-  const loginPage = new LoginPage(page);
-  await loginPage.goto();
-  await loginPage.login('standard_user', 'secret_sauce');
-  await expect(page.locator('.app_logo')).toHaveText('Swag Labs');
-});
-
-test('verificar placeholder del campo usuario', async ({ page }) => {
-  const loginPage = new LoginPage(page);
-  await loginPage.goto();
-  await expect(loginPage.usernameInput).toHaveAttribute('placeholder', 'Username');
-});
+  async getErrorMessage() {
+    return await this.errorMessage.textContent();
+  }
+}
