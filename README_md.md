@@ -91,11 +91,12 @@ Soy enfermero en transición al mundo IT, especializándome en QA Testing (manua
 
 ### ¿Qué hice?
 
-- Scripts con fundamentos de Python (variables, condicionales, loops, funciones)
-- Consumo de APIs con la librería `requests`
-- Tests automatizados con `pytest` y `assert`
-- **Data-driven testing**: lectura de casos de prueba desde archivos CSV para correr el mismo test con múltiples combinaciones de datos
-- Función propia de validación de contraseñas seguras, con sus tests correspondientes
+- Función propia de validación de contraseñas seguras (`password_validator.py`), con reglas de longitud, mayúsculas, minúsculas, números y caracteres especiales
+- Cliente de API con la librería `requests` (`api_client.py`) sobre jsonplaceholder.typicode.com — la misma API que uso en `tests/api.spec.js` con Playwright, ahora en Python
+- Tests automatizados con `pytest` y `assert` para ambos scripts
+- **Data-driven testing**: `test_password_validator.py` lee los casos desde `test_data_passwords.csv` con `@pytest.mark.parametrize`, para correr el mismo test con múltiples combinaciones de datos
+
+📁 Código en: [`python/`](./python)
 
 ---
 
@@ -127,6 +128,7 @@ Documenté 3 casos reales de uso de IA en mi proceso de testing (generación de 
 ├── pages/              # Page Objects (LoginPage, InventoryPage, CheckoutPage)
 ├── docs/               # Documentación de testing manual (Excel, Word)
 ├── postman/            # Colección de Postman
+├── python/             # Validador de contraseñas + cliente de API, con tests pytest
 ├── .github/workflows/  # Configuración de CI/CD
 ├── ROADMAP_PRINCIPAL.md
 ├── CHECKLIST_SEMANAL.md
