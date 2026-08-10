@@ -71,17 +71,17 @@ Soy enfermero en transición al mundo IT, especializándome en QA Testing (manua
 
 ## Proyecto 4: SQL para QA
 
-**Herramienta:** sqlbolt.com
+**Herramienta:** SQLite (DB Browser) + sqlbolt.com
 
-### ¿Qué practiqué?
+### ¿Qué hice?
 
-- SELECT, WHERE, ORDER BY, LIMIT
-- JOIN (INNER y LEFT) para cruzar datos entre tablas
-- GROUP BY con COUNT, SUM y AVG
-- INSERT, UPDATE, DELETE
-- CREATE TABLE para definir estructuras de bases de datos
+- Diseñé una base de datos propia tipo e-commerce (`users`, `products`, `orders`, `order_items`) con los mismos 6 productos de SauceDemo que ya automatizo en Playwright
+- 21 ejercicios progresivos: SELECT, WHERE, ORDER BY, JOIN (INNER y LEFT), GROUP BY con funciones de agregación, INSERT/UPDATE/DELETE
+- Un nivel final pensado como escenario real de QA: escribir la query que verificaría en base de datos que una compra automatizada con Playwright se guardó correctamente
 
-**¿Para qué sirve en QA?** Permite validar en la base de datos que una acción en la app realmente guardó los datos correctos (ej: tras un registro, verificar con SELECT que el dato existe).
+📁 Código en: [`sql/`](./sql)
+
+**¿Para qué sirve en QA?** Permite validar en la base de datos que una acción en la app realmente guardó los datos correctos (ej: tras un checkout, verificar con SELECT que el pedido y sus items existen y el total coincide).
 
 ---
 
@@ -129,6 +129,7 @@ Documenté 3 casos reales de uso de IA en mi proceso de testing (generación de 
 ├── docs/               # Documentación de testing manual (Excel, Word)
 ├── postman/            # Colección de Postman
 ├── python/             # Validador de contraseñas + cliente de API, con tests pytest
+├── sql/                # Base de datos propia + 21 ejercicios progresivos de SQL
 ├── .github/workflows/  # Configuración de CI/CD
 ├── ROADMAP_PRINCIPAL.md
 ├── CHECKLIST_SEMANAL.md

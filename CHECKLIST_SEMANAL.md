@@ -25,16 +25,16 @@ Usá este archivo para marcar tu progreso. Cambiá `[ ]` por `[x]` cuando comple
 
 ### Semana 3 — SQL básico
 - [ ] Completar módulos 1–6 de https://sqlbolt.com
-- [ ] Practicar SELECT + WHERE + ORDER BY
-- [ ] Practicar JOIN (INNER y LEFT)
-- [ ] Practicar GROUP BY + COUNT
-- [ ] Instalar DB Browser for SQLite o PostgreSQL
+- [x] Practicar SELECT + WHERE + ORDER BY (Niveles 1 y 2 de `sql/exercises.md` resueltos: SELECT, WHERE con igualdad/AND/!=, ORDER BY, LIMIT)
+- [ ] Practicar JOIN (INNER y LEFT) — **INNER JOIN hecho** (Nivel 3 completo, incluyendo una consulta de 4 tablas); falta LEFT JOIN (Nivel 4)
+- [ ] Practicar GROUP BY + COUNT (Nivel 5 de `sql/exercises.md`, pendiente)
+- [x] Instalar DB Browser for SQLite o PostgreSQL
 
-> ⚠️ El README menciona SQL practicado (SELECT, JOIN, GROUP BY, INSERT/UPDATE/DELETE, CREATE TABLE) pero no hay ningún archivo o evidencia en el repo que lo respalde todavía. Si ya lo practicaste, sumá capturas o un archivo `.sql` con las queries.
+> 🔄 2026-08-07: resolviste en vivo los Niveles 1, 2 y 3 completos de `sql/exercises.md` (incluye JOIN de 4 tablas: orders + users + order_items + products). Quedan pendientes: Nivel 4 (LEFT JOIN), Nivel 5 (GROUP BY), Nivel 6 (INSERT/UPDATE/DELETE) y Nivel 7 (escenario QA real).
 
 ### Semana 4 — SQL + integración QA
 - [ ] Completar módulos 7–12 de sqlbolt.com
-- [ ] Escribir query que valide datos de una acción en la app
+- [ ] Escribir query que valide datos de una acción en la app (nivel 7 de `sql/exercises.md`, pensado exactamente para esto)
 - [ ] Proyecto: colección Postman completa (10+ requests, tests, variables)
 - [x] README del proyecto subido a GitHub
 
