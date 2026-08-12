@@ -24,17 +24,17 @@ Usá este archivo para marcar tu progreso. Cambiá `[ ]` por `[x]` cuando comple
 - [x] Exportar y subir colección a GitHub
 
 ### Semana 3 — SQL básico
-- [ ] Completar módulos 1–6 de https://sqlbolt.com
-- [x] Practicar SELECT + WHERE + ORDER BY (Niveles 1 y 2 de `sql/exercises.md` resueltos: SELECT, WHERE con igualdad/AND/!=, ORDER BY, LIMIT)
-- [ ] Practicar JOIN (INNER y LEFT) — **INNER JOIN hecho** (Nivel 3 completo, incluyendo una consulta de 4 tablas); falta LEFT JOIN (Nivel 4)
-- [ ] Practicar GROUP BY + COUNT (Nivel 5 de `sql/exercises.md`, pendiente)
+- [ ] Completar módulos 1–6 de https://sqlbolt.com (no hizo falta — se practicó todo con `sql/exercises.md` en su lugar)
+- [x] Practicar SELECT + WHERE + ORDER BY
+- [x] Practicar JOIN (INNER y LEFT) — INNER (Nivel 3, incluida una consulta de 4 tablas) y LEFT (Nivel 4, usuarios sin pedidos / productos sin ventas)
+- [x] Practicar GROUP BY + COUNT (Nivel 5: COUNT, SUM, combinado con JOIN + WHERE — incluye la consulta más compleja de todo el ejercicio: total gastado por usuario)
 - [x] Instalar DB Browser for SQLite o PostgreSQL
 
-> 🔄 2026-08-07: resolviste en vivo los Niveles 1, 2 y 3 completos de `sql/exercises.md` (incluye JOIN de 4 tablas: orders + users + order_items + products). Quedan pendientes: Nivel 4 (LEFT JOIN), Nivel 5 (GROUP BY), Nivel 6 (INSERT/UPDATE/DELETE) y Nivel 7 (escenario QA real).
+> ✅ 2026-08-09: **los 7 niveles de `sql/exercises.md` (21 ejercicios) están completos.** Niveles 1-5 resueltos en dos sesiones en vivo; Nivel 6 (INSERT/UPDATE/DELETE) resuelto hoy; Nivel 7 (escenario QA real: verificar en base de datos que un checkout automatizado se guardó bien) ya se había resuelto como ejemplo al principio. SQL deja de ser el hueco del portfolio.
 
 ### Semana 4 — SQL + integración QA
-- [ ] Completar módulos 7–12 de sqlbolt.com
-- [ ] Escribir query que valide datos de una acción en la app (nivel 7 de `sql/exercises.md`, pensado exactamente para esto)
+- [ ] Completar módulos 7–12 de sqlbolt.com (idem nota de arriba)
+- [x] Escribir query que valide datos de una acción en la app (Nivel 7 de `sql/exercises.md`)
 - [ ] Proyecto: colección Postman completa (10+ requests, tests, variables)
 - [x] README del proyecto subido a GitHub
 
