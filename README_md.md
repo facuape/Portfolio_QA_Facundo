@@ -59,11 +59,12 @@ Soy enfermero en transición al mundo IT, especializándome en QA Testing (manua
 
 ### ¿Qué hice?
 
-- Creé una colección de Postman con requests GET, POST, PUT y DELETE
-- Validé códigos de respuesta HTTP (200, 201, 404, etc.)
+- Creé una colección de Postman con 10 requests: GET, POST, PUT y DELETE sobre reqres.in (crear, listar con paginación, obtener por ID, actualizar, eliminar, caso 404)
+- Validé códigos de respuesta HTTP (200, 201, 204, 404, etc.)
 - Verifiqué la estructura y el contenido de los JSON de respuesta
-- Escribí tests automáticos en la pestaña "Tests" de Postman
-- Configuré variables de entorno (`base_url`, `token`) y autenticación con Bearer Token
+- Escribí tests automáticos en la pestaña "Tests" de Postman en cada request
+- Configuré variables de colección (`base_url`, `api_key`, `token`) con valores por defecto, para que la colección corra sin configuración adicional
+- Probé autenticación con Bearer Token contra httpbingo.org/bearer (reqres.in solo soporta `x-api-key`, así que usé una API que sí soporta Bearer para probar el mecanismo real)
 
 📄 Colección en: [`postman/ReqRes API - QA Practice.postman_collection.json`](./postman)
 

@@ -10,17 +10,17 @@ Usá este archivo para marcar tu progreso. Cambiá `[ ]` por `[x]` cuando comple
 
 ### Semana 1 — Postman básico
 - [x] Instalar Postman
-- [ ] Hacer GET request a https://reqres.in/api/users (lista completa — solo tenés requests a usuarios individuales)
+- [x] Hacer GET request a https://reqres.in/api/users (lista completa) — request "Listar usuarios"
 - [x] Hacer GET request a un usuario específico (by ID)
-- [ ] Hacer POST para crear un usuario (no está en la colección actual — solo hay PUT, DELETE y GET)
+- [x] Hacer POST para crear un usuario — request "Crear usuario" en la carpeta USUARIOS
 - [x] Verificar manualmente los códigos de respuesta
 - [x] Verificar la estructura del JSON de respuesta
 
 ### Semana 2 — Postman avanzado
 - [x] Escribir 3 tests automáticos en la pestaña "Tests" de Postman (tenés 4+: status 204, 200, 404, validación de JSON)
-- [x] Crear variables de entorno (base_url, token)
-- [ ] Probar autenticación con Bearer Token (tu colección usa `x-api-key`, no Bearer — falta probar ese método específico)
-- [ ] Crear colección organizada con al menos 8 requests (tenés 6: Eliminar, Actualizar ×2, 404, Obtener ×2)
+- [x] Crear variables de entorno (base_url, api_key, token — ahora como variables de colección, con valores por defecto incluidos en el JSON)
+- [x] Probar autenticación con Bearer Token — carpeta "AUTENTICACION", request contra httpbingo.org/bearer (reqres.in no soporta Bearer, solo x-api-key, así que se usó una API que sí lo soporta para probar el mecanismo real; se cambió de httpbin.org, que quedó caído, a httpbingo.org, un port en Go del mismo servicio con formato de respuesta idéntico)
+- [x] Crear colección organizada con al menos 8 requests (ahora tiene 10: Crear usuario, Listar usuarios, Listar usuarios pág. 2, Eliminar, Actualizar ×2, 404, Obtener ×2, Bearer Token)
 - [x] Exportar y subir colección a GitHub
 
 ### Semana 3 — SQL básico
@@ -35,7 +35,7 @@ Usá este archivo para marcar tu progreso. Cambiá `[ ]` por `[x]` cuando comple
 ### Semana 4 — SQL + integración QA
 - [ ] Completar módulos 7–12 de sqlbolt.com (idem nota de arriba)
 - [x] Escribir query que valide datos de una acción en la app (Nivel 7 de `sql/exercises.md`)
-- [ ] Proyecto: colección Postman completa (10+ requests, tests, variables)
+- [x] Proyecto: colección Postman completa (10 requests, tests en todos, variables de colección)
 - [x] README del proyecto subido a GitHub
 
 ---

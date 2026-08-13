@@ -6,10 +6,211 @@
     "_exporter_id": "48636555",
     "_collection_link": "https://go.postman.co/collection/48636555-d5be1d33-bf29-4386-8306-1cfcd6b3a83e?source=collection_link"
   },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "https://reqres.in",
+      "type": "string"
+    },
+    {
+      "key": "api_key",
+      "value": "reqres-free-v1",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "demo-token-12345",
+      "type": "string"
+    }
+  ],
   "item": [
     {
       "name": "USUARIOS",
       "item": [
+        {
+          "name": "Crear usuario",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 201\", function () {\r",
+                  "    pm.response.to.have.status(201);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response has id and createdAt\", function () {\r",
+                  "    var json = pm.response.json();\r",
+                  "    pm.expect(json.id).to.exist;\r",
+                  "    pm.expect(json.createdAt).to.exist;\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Name matches what was sent\", function () {\r",
+                  "    var json = pm.response.json();\r",
+                  "    pm.expect(json.name).to.eql(\"Facundo\");\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-api-key",
+                "value": "{{api_key}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Facundo\",\r\n  \"job\": \"QA Tester\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/users",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Listar usuarios",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response has a non-empty data array\", function () {\r",
+                  "    var json = pm.response.json();\r",
+                  "    pm.expect(json.data).to.be.an(\"array\");\r",
+                  "    pm.expect(json.data.length).to.be.above(0);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Each user has id and email\", function () {\r",
+                  "    var json = pm.response.json();\r",
+                  "    json.data.forEach(function (user) {\r",
+                  "        pm.expect(user.id).to.exist;\r",
+                  "        pm.expect(user.email).to.exist;\r",
+                  "    });\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-api-key",
+                "value": "{{api_key}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/users?page=1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "users"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Listar usuarios - pagina 2",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response page matches requested page\", function () {\r",
+                  "    var json = pm.response.json();\r",
+                  "    pm.expect(json.page).to.eql(2);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Users on page 2 are different from page 1\", function () {\r",
+                  "    var json = pm.response.json();\r",
+                  "    var idsOnPage2 = json.data.map(function (u) { return u.id; });\r",
+                  "    pm.expect(idsOnPage2).to.not.include(1);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-api-key",
+                "value": "{{api_key}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/users?page=2",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "users"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "2"
+                }
+              ]
+            },
+            "description": "Prueba de paginacion: confirma que pedir la pagina 2 devuelve usuarios distintos a los de la pagina 1."
+          },
+          "response": []
+        },
         {
           "name": "Eliminar usuario",
           "item": [
@@ -392,6 +593,66 @@
               "response": []
             }
           ]
+        }
+      ]
+    },
+    {
+      "name": "AUTENTICACION",
+      "item": [
+        {
+          "name": "Bearer Token - autenticacion exitosa",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Server confirms the token was authenticated\", function () {\r",
+                  "    var json = pm.response.json();\r",
+                  "    pm.expect(json.authenticated).to.eql(true);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Token echoed back matches the one sent\", function () {\r",
+                  "    var json = pm.response.json();\r",
+                  "    pm.expect(json.token).to.eql(pm.collectionVariables.get(\"token\"));\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://httpbingo.org/bearer",
+              "protocol": "https",
+              "host": [
+                "httpbingo",
+                "org"
+              ],
+              "path": [
+                "bearer"
+              ]
+            },
+            "description": "httpbingo.org/bearer devuelve 200 y {authenticated: true, token: \"...\"} para cualquier Authorization: Bearer <token> valido. Es un port en Go de httpbin.org (mismo formato de respuesta), mantenido activamente y mas confiable que el httpbin.org original. Sirve para practicar el flujo de Bearer Token sin depender de que reqres.in lo soporte (reqres solo acepta x-api-key)."
+          },
+          "response": []
         }
       ]
     }
