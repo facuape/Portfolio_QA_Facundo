@@ -6,3 +6,9 @@ node_modules/
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
+
+# Notas personales de estudio (no forman parte del portfolio publico)
+GLOSARIO_TECNICO.md
+MAPA_CONCEPTUAL_QA.md
+MAPA_C_1.pdf
+entrevista_practica/
